@@ -94,14 +94,6 @@ def check_boundary_exit(bodies: List[Body], grid_w: float, grid_h: float,
 
 
 def update_system(bodies: List[Body], time_step: float) -> None:
-    """
-    Atualiza o sistema físico: calcula forças, velocidades e posições.
-    
-    Args:
-        bodies: Lista de corpos
-        time_step: Intervalo de tempo
-    """
-    # Calcula aceleração de cada corpo
     for i, body in enumerate(bodies):
         other_bodies = bodies[:i] + bodies[i+1:]
         force = body.calculate_resultant_force(other_bodies)

@@ -1,5 +1,4 @@
 import os
-from datetime import datetime
 from random import randint, uniform
 from typing import List, Tuple, Dict
 
@@ -12,7 +11,7 @@ import cv2
 from phisicBodies import Body
 from config import Config
 
-COLORS = ['#FF6B6B', '#4ECDC4', '#45B7D1', "#F107AB", '#FFE66D', '#FF9F1C', '#2EC4B6', '#E71D36', "#82FF69", '#A0E7E5']
+COLORS = ['#FF6B6B', '#4ECDC4', "#09FF00", "#F107AB", '#FFE66D', '#FF9F1C', '#2EC4B6', '#E71D36', "#82FF69", '#A0E7E5']
 
 
 def calculate_body_size(body: Dict, config: Config) -> float:
@@ -73,13 +72,13 @@ def randomize_body_positions(config: Config, bodies: List[Dict]) -> None:
         body_data['vel_y'] = float(vel_y)
 
 
-def check_collision(bodies: List[Body]) -> Tuple[bool, str, str]:
+def check_collision(bodies: List[Body], collision_dist: float) -> Tuple[bool, str, str]:
     for i, body1 in enumerate(bodies):
         for j in range(i + 1, len(bodies)):
             body2 = bodies[j]
             dist = np.sqrt((body2.position['x'] - body1.position['x'])**2 + 
                            (body2.position['y'] - body1.position['y'])**2)
-            if dist < body1.size + body2.size:
+            if dist < collision_dist * 5:
                 return True, body1.name, body2.name
     return False, None, None
 
@@ -108,20 +107,7 @@ def update_system(bodies: List[Body], time_step: float) -> None:
 
 def save_frame(bodies: List[Body], cycle: int, saved_frames: list, 
                grid_w: float, grid_h: float, dpi: int) -> List:
-    """
-    Salva um frame da simulação como imagem NumPy.
-    
-    Args:
-        bodies: Lista de corpos
-        cycle: Número do ciclo
-        saved_frames: Lista para acumular frames
-        grid_w: Largura do grid
-        grid_h: Altura do grid
-        dpi: Resolução dos gráficos
-        
-    Returns:
-        Lista de frames atualizada
-    """
+
     plt.figure(figsize=(10, 10))
     
     for body, b_color in zip(bodies, COLORS):
@@ -160,20 +146,19 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
     frame_interval = config['frame_interval']
     min_frames = config['min_frames']
     dpi = config['plot_dpi']
-    min_cycles = frame_interval * min_frames
     
     config.log("THREE BODY PROBLEM SIMULATION", "TITLE")
     config.log(f"Max cycles: {max_cycles}")
     config.log(f"Time step: {time_step}")
     config.log(f"Grid: {grid_w}x{grid_h}")
     config.log(f"Collision distance: {collision_dist}")
-    config.log(f"Min cycles required for {min_frames} frames: {min_cycles}\n")
+    config.log(f"Min cycles required for {min_frames} frames")
     config.log(f"Bodies: {[body.name for body in bodies]}\n")
     config.log(f"Debug mode {'ON' if config['debug'] else 'OFF'}\n")
     
     termination = "max_cycles"
     
-    for cycle in range(max_cycles):
+    for cycle in range(max_cycles * frame_interval):
         for body in bodies:
             trajectories[body.name]['x'].append(body.position['x'])
             trajectories[body.name]['y'].append(body.position['y'])
@@ -182,26 +167,30 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
         
         if (cycle + 1) % frame_interval == 0:
             frames = save_frame(bodies, cycle, frames, grid_w, grid_h, dpi)
+            if len(frames) % 10 == 0:
+                config.log(f"Cycle {cycle + 1}: Frame saved (Total frames: {len(frames)})", "DEBUG")
+            collided, b1, b2 = check_collision(bodies, collision_dist)
+            if collided:
+                config.log(f" COLLISION: {b1} and {b2} at cycle {cycle + 1}", ">>>")
+                termination = f"collision_{b1}_{b2}"
+                if not config['end_on_collision']:
+                    continue
+                for body in bodies:
+                    trajectories[body.name]['x'].append(body.position['x'])
+                    trajectories[body.name]['y'].append(body.position['y'])
+                break
         
         exited, name = check_boundary_exit(bodies, grid_w, grid_h)
         if exited:
-            config.log(f"\n>>> BOUNDARY EXIT: {name} at cycle {cycle + 1}")
+            config.log(f" BOUNDARY EXIT: {name} at cycle {cycle + 1}", ">>>")
             termination = f"boundary_exit_{name}"
             for body in bodies:
                 trajectories[body.name]['x'].append(body.position['x'])
                 trajectories[body.name]['y'].append(body.position['y'])
             break
+    
         
-        if cycle >= min_cycles:
-            collided, b1, b2 = check_collision(bodies)
-            if collided:
-                config.log(f"\n>>> COLLISION: {b1} and {b2} at cycle {cycle + 1}")
-                termination = f"collision_{b1}_{b2}"
-                for body in bodies:
-                    trajectories[body.name]['x'].append(body.position['x'])
-                    trajectories[body.name]['y'].append(body.position['y'])
-                break
-    config.log(f"Simulation completed: {termination}")
+    config.log(f"Simulation completed: {termination}", '>>>')
     config.log(f"Total frames generated: {len(frames)}", "DEBUG")
     return bodies, trajectories
 
@@ -218,7 +207,7 @@ def validate_and_retry(config: Config, results_dir: str, frames: list,
     frame_count = len(frames)
     config.log(f"Simulation generated {frame_count} frames (min required: {config['min_frames']})", "DEBUG")
     
-    if frame_count < config['min_frames'] and retry_count < config['max_retries']:
+    if frame_count < config['min_frames'] and retry_count < config['max_retries'] and config['randomize_positions']:
         config.log(f"Insufficient frames ({frame_count}/{config['min_frames']}) - retrying simulation (attempt {retry_count + 1})", "WARNING")
         return validate_and_retry(config, results_dir, frames, retry_count + 1)
     
@@ -255,7 +244,7 @@ def plot_trajectories(trajectories: Dict, bodies: List[Body],
     
     output = os.path.join(results_dir, 'trajectories.png')
     plt.savefig(output, dpi=dpi, bbox_inches='tight', facecolor='white')
-    print(f"[OK] Trajectories: {output}")
+
     plt.close()
 
 

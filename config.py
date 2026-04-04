@@ -6,20 +6,25 @@ from datetime import datetime
 class Config:
 
     DEFAULTS = {
-        'simulation_cycles': 100000000,
-        'time_step': 0.01,
+        # Simulation settings
         'randomize_positions': False,
-        'calculate_sizes': False,
-        'debug': False,
+        'calculate_sizes': True,
+        'end_on_collision': False,
         'size_scale_factor': 20,
+        'debug': True,
+        'simulation_cycles': 100000000,
+        'body_mask' : 1.5,
+        'min_velocity': -0.2,
+        'max_velocity': 0.2,
+        # Visualization settings
+        'time_step': 0.01,
         'grid_width': 300,
         'grid_height': 300,
         'scale_factor': 0.1,
         'plot_dpi': 200,
+        # Output settings
         'save_plots': True,
         'high_quality_plots': True,
-        'min_velocity': -0.2,
-        'max_velocity': 0.2,
         'collision_distance': 1.5,
         'frame_interval': 1500,
         'min_frames': 15,
@@ -57,13 +62,15 @@ class Config:
         return self.results_dir
 
     def log(self, message: str, level: str = "INFO") -> None:
+        print(f"[{datetime.now()}][{level}] {message}")
         if level == "DEBUG" and not self.data.get('debug', False):
             return
-        print(f"[{datetime.now()}][{level}] {message}")
-        if self.log_dir:
+        try:
             log_file = os.path.join(self.log_dir, 'simulation.log')
             with open(log_file, 'a') as f:
                 f.write(f"[{datetime.now()}][{level}] {message}\n")
+        except Exception as e:
+            print(f"[ERROR] Failed to write log: {e}")
 
     def _parse_config(self, config: ConfigParser) -> Dict[str, Any]:
         data = {}
@@ -85,6 +92,8 @@ class Config:
             'SIMULATION', 'min_velocity', fallback=self.DEFAULTS['min_velocity'])
         data['max_velocity'] = config.getfloat(
             'SIMULATION', 'max_velocity', fallback=self.DEFAULTS['max_velocity'])
+        data['end_on_collision'] = config.getboolean(
+            'SIMULATION', 'end_on_collision', fallback=self.DEFAULTS['end_on_collision'])
         
         # Visualization settings
         data['grid_width'] = config.getint(
@@ -111,9 +120,8 @@ class Config:
             'OUTPUT', 'max_retries', fallback=self.DEFAULTS['max_retries'])
         
         data['bodies'] = []
-        bodies_section = False
         for section in config.sections():
-            if bodies_section:
+            if section != 'SIMULATION' and section != 'VISUALIZATION' and section != 'OUTPUT':
                 data[section] = {
                     'name': section,
                     'mass': config.getfloat(section, 'mass'),
@@ -123,8 +131,6 @@ class Config:
                     'vel_y': config.getfloat(section, 'vel_y')
                 }
                 data['bodies'].append(data[section])
-            if section == 'BODIES':
-                bodies_section = True
         return data
     
     def get(self, key: str, default: Any = None) -> Any:

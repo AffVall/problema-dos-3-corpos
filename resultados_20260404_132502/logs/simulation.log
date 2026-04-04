@@ -1,0 +1,680 @@
+[2026-04-04 13:25:02.568513][INFO] ============================================================
+[2026-04-04 13:25:02.569510][TITLE] THREE BODY PROBLEM SIMULATOR STARTED
+[2026-04-04 13:25:02.569510][INFO] ============================================================
+[2026-04-04 13:25:02.569510][DEBUG] Log file: resultados_20260404_132502\logs
+[2026-04-04 13:25:02.570508][DEBUG] Results directory: resultados_20260404_132502
+[2026-04-04 13:25:02.570508][DEBUG] Configuration: debug=True, randomize_pos=True, calc_sizes=True
+[2026-04-04 13:25:02.571506][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:02.571506][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(160.0, 181.0), vel=(-0.017, -0.003)
+[2026-04-04 13:25:02.572503][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(85.0, 240.0), vel=(0.072, -0.009)
+[2026-04-04 13:25:02.572503][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(269.0, 85.0), vel=(-0.015, 0.008)
+[2026-04-04 13:25:02.573500][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(255.0, 212.0), vel=(-0.068, -0.045)
+[2026-04-04 13:25:02.573500][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(268.0, 204.0), vel=(-0.055, -0.063)
+[2026-04-04 13:25:02.573500][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:02.574497][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:02.574497][INFO] Max cycles: 100000000
+[2026-04-04 13:25:02.575496][INFO] Time step: 0.01
+[2026-04-04 13:25:02.575496][INFO] Grid: 300x300
+[2026-04-04 13:25:02.576492][INFO] Collision distance: 1.5
+[2026-04-04 13:25:02.576492][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:02.577489][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:02.577489][INFO] Debug mode ON
+
+[2026-04-04 13:25:03.038315][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 2775
+[2026-04-04 13:25:03.039312][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:25:03.039312][DEBUG] Total frames generated: 3
+[2026-04-04 13:25:03.040310][DEBUG] Simulation generated 3 frames (min required: 300)
+[2026-04-04 13:25:03.040310][WARNING] Insufficient frames (3/300) - retrying simulation (attempt 1)
+[2026-04-04 13:25:03.041332][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:03.041332][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(114.0, 185.0), vel=(0.097, -0.073)
+[2026-04-04 13:25:03.042304][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(30.0, 159.0), vel=(0.021, -0.018)
+[2026-04-04 13:25:03.042304][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(49.0, 187.0), vel=(0.002, -0.056)
+[2026-04-04 13:25:03.043301][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(139.0, 84.0), vel=(0.002, 0.017)
+[2026-04-04 13:25:03.043301][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(65.0, 252.0), vel=(0.097, -0.062)
+[2026-04-04 13:25:03.043301][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:03.044300][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:03.045296][INFO] Max cycles: 100000000
+[2026-04-04 13:25:03.045296][INFO] Time step: 0.01
+[2026-04-04 13:25:03.045296][INFO] Grid: 300x300
+[2026-04-04 13:25:03.046294][INFO] Collision distance: 1.5
+[2026-04-04 13:25:03.046294][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:03.047291][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:03.047291][INFO] Debug mode ON
+
+[2026-04-04 13:25:04.637727][>>>]  BOUNDARY EXIT: Proxima d  at cycle 8974
+[2026-04-04 13:25:04.638724][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:25:04.638724][DEBUG] Total frames generated: 11
+[2026-04-04 13:25:04.639721][DEBUG] Simulation generated 11 frames (min required: 300)
+[2026-04-04 13:25:04.639721][WARNING] Insufficient frames (11/300) - retrying simulation (attempt 2)
+[2026-04-04 13:25:04.642715][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:04.643711][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(90.0, 252.0), vel=(0.069, -0.018)
+[2026-04-04 13:25:04.644709][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(125.0, 246.0), vel=(0.069, -0.005)
+[2026-04-04 13:25:04.646704][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(235.0, 123.0), vel=(-0.094, 0.081)
+[2026-04-04 13:25:04.647701][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(41.0, 61.0), vel=(0.038, 0.013)
+[2026-04-04 13:25:04.648699][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(103.0, 164.0), vel=(0.031, -0.030)
+[2026-04-04 13:25:04.648699][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:04.649696][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:04.650693][INFO] Max cycles: 100000000
+[2026-04-04 13:25:04.650693][INFO] Time step: 0.01
+[2026-04-04 13:25:04.651690][INFO] Grid: 300x300
+[2026-04-04 13:25:04.651690][INFO] Collision distance: 1.5
+[2026-04-04 13:25:04.652688][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:04.652688][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:04.653685][INFO] Debug mode ON
+
+[2026-04-04 13:25:11.334973][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 39000
+[2026-04-04 13:25:11.458766][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 39750
+[2026-04-04 13:25:11.584423][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 40500
+[2026-04-04 13:25:11.741007][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 41250
+[2026-04-04 13:25:11.864676][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 42000
+[2026-04-04 13:25:11.990311][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 42750
+[2026-04-04 13:25:12.856017][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 48000
+[2026-04-04 13:25:17.757976][>>>]  BOUNDARY EXIT: Proxima b  at cycle 77656
+[2026-04-04 13:25:17.757976][>>>] Simulation completed: boundary_exit_Proxima b 
+[2026-04-04 13:25:17.758946][DEBUG] Total frames generated: 103
+[2026-04-04 13:25:17.758946][DEBUG] Simulation generated 103 frames (min required: 300)
+[2026-04-04 13:25:17.759944][WARNING] Insufficient frames (103/300) - retrying simulation (attempt 3)
+[2026-04-04 13:25:17.782881][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:17.783879][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(136.0, 140.0), vel=(0.068, 0.020)
+[2026-04-04 13:25:17.783879][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(112.0, 120.0), vel=(0.009, 0.044)
+[2026-04-04 13:25:17.784878][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(74.0, 87.0), vel=(0.065, 0.016)
+[2026-04-04 13:25:17.785874][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(119.0, 207.0), vel=(0.006, -0.058)
+[2026-04-04 13:25:17.785874][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(83.0, 237.0), vel=(0.095, -0.021)
+[2026-04-04 13:25:17.785874][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:17.786871][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:17.786871][INFO] Max cycles: 100000000
+[2026-04-04 13:25:17.787868][INFO] Time step: 0.01
+[2026-04-04 13:25:17.787868][INFO] Grid: 300x300
+[2026-04-04 13:25:17.788866][INFO] Collision distance: 1.5
+[2026-04-04 13:25:17.788866][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:17.789863][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:17.790861][INFO] Debug mode ON
+
+[2026-04-04 13:25:20.073781][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 13500
+[2026-04-04 13:25:20.617302][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 16500
+[2026-04-04 13:25:22.101335][>>>]  COLLISION: Proxima b  and Toliman at cycle 25500
+[2026-04-04 13:25:22.226001][>>>]  COLLISION: Proxima b  and Toliman at cycle 26250
+[2026-04-04 13:25:24.132902][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 37500
+[2026-04-04 13:25:30.002208][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 72687
+[2026-04-04 13:25:30.002208][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:25:30.003206][DEBUG] Total frames generated: 96
+[2026-04-04 13:25:30.003206][DEBUG] Simulation generated 96 frames (min required: 300)
+[2026-04-04 13:25:30.003206][WARNING] Insufficient frames (96/300) - retrying simulation (attempt 4)
+[2026-04-04 13:25:30.024149][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:30.025147][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(131.0, 258.0), vel=(0.017, -0.097)
+[2026-04-04 13:25:30.025147][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(176.0, 179.0), vel=(-0.007, -0.017)
+[2026-04-04 13:25:30.026145][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(158.0, 213.0), vel=(-0.030, -0.072)
+[2026-04-04 13:25:30.026145][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(171.0, 51.0), vel=(-0.065, 0.047)
+[2026-04-04 13:25:30.027142][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(54.0, 106.0), vel=(0.029, 0.023)
+[2026-04-04 13:25:30.028140][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:30.028140][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:30.029136][INFO] Max cycles: 100000000
+[2026-04-04 13:25:30.029136][INFO] Time step: 0.01
+[2026-04-04 13:25:30.030134][INFO] Grid: 300x300
+[2026-04-04 13:25:30.030134][INFO] Collision distance: 1.5
+[2026-04-04 13:25:30.030134][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:30.031131][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:30.032129][INFO] Debug mode ON
+
+[2026-04-04 13:25:31.702693][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 9750
+[2026-04-04 13:25:32.694041][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 15750
+[2026-04-04 13:25:35.231226][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 30750
+[2026-04-04 13:25:35.365866][>>>]  BOUNDARY EXIT: Proxima d  at cycle 31939
+[2026-04-04 13:25:35.365866][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:25:35.366863][DEBUG] Total frames generated: 42
+[2026-04-04 13:25:35.366863][DEBUG] Simulation generated 42 frames (min required: 300)
+[2026-04-04 13:25:35.367862][WARNING] Insufficient frames (42/300) - retrying simulation (attempt 5)
+[2026-04-04 13:25:35.376838][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:35.376838][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(36.0, 62.0), vel=(0.079, 0.074)
+[2026-04-04 13:25:35.377835][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(137.0, 163.0), vel=(0.081, -0.074)
+[2026-04-04 13:25:35.377835][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(85.0, 199.0), vel=(0.060, -0.024)
+[2026-04-04 13:25:35.378832][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(182.0, 66.0), vel=(-0.097, 0.027)
+[2026-04-04 13:25:35.378832][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(64.0, 202.0), vel=(0.055, -0.061)
+[2026-04-04 13:25:35.379830][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:35.379830][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:35.380827][INFO] Max cycles: 100000000
+[2026-04-04 13:25:35.381824][INFO] Time step: 0.01
+[2026-04-04 13:25:35.381824][INFO] Grid: 300x300
+[2026-04-04 13:25:35.382822][INFO] Collision distance: 1.5
+[2026-04-04 13:25:35.382822][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:35.383818][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:35.383818][INFO] Debug mode ON
+
+[2026-04-04 13:25:36.065994][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 3750
+[2026-04-04 13:25:36.450965][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 6307
+[2026-04-04 13:25:36.450965][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:25:36.451963][DEBUG] Total frames generated: 8
+[2026-04-04 13:25:36.451963][DEBUG] Simulation generated 8 frames (min required: 300)
+[2026-04-04 13:25:36.452960][WARNING] Insufficient frames (8/300) - retrying simulation (attempt 6)
+[2026-04-04 13:25:36.454954][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:36.454954][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(111.0, 37.0), vel=(0.025, 0.033)
+[2026-04-04 13:25:36.455952][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(49.0, 138.0), vel=(0.027, 0.078)
+[2026-04-04 13:25:36.455952][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(125.0, 253.0), vel=(0.016, -0.001)
+[2026-04-04 13:25:36.456950][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(110.0, 60.0), vel=(0.051, 0.027)
+[2026-04-04 13:25:36.456950][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(58.0, 191.0), vel=(0.064, -0.029)
+[2026-04-04 13:25:36.457947][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:36.457947][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:36.457947][INFO] Max cycles: 100000000
+[2026-04-04 13:25:36.458944][INFO] Time step: 0.01
+[2026-04-04 13:25:36.458944][INFO] Grid: 300x300
+[2026-04-04 13:25:36.459941][INFO] Collision distance: 1.5
+[2026-04-04 13:25:36.459941][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:36.460939][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:36.460939][INFO] Debug mode ON
+
+[2026-04-04 13:25:37.329616][>>>]  COLLISION: Proxima b  and Toliman at cycle 5250
+[2026-04-04 13:25:37.581972][>>>]  BOUNDARY EXIT: Proxima b  at cycle 6987
+[2026-04-04 13:25:37.582938][>>>] Simulation completed: boundary_exit_Proxima b 
+[2026-04-04 13:25:37.582938][DEBUG] Total frames generated: 9
+[2026-04-04 13:25:37.583935][DEBUG] Simulation generated 9 frames (min required: 300)
+[2026-04-04 13:25:37.583935][WARNING] Insufficient frames (9/300) - retrying simulation (attempt 7)
+[2026-04-04 13:25:37.585929][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:25:37.586928][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(104.0, 63.0), vel=(0.066, 0.080)
+[2026-04-04 13:25:37.586928][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(49.0, 32.0), vel=(0.058, 0.014)
+[2026-04-04 13:25:37.587926][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(236.0, 158.0), vel=(-0.019, -0.090)
+[2026-04-04 13:25:37.587926][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(192.0, 89.0), vel=(-0.003, 0.057)
+[2026-04-04 13:25:37.588922][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(54.0, 116.0), vel=(0.094, 0.068)
+[2026-04-04 13:25:37.588922][DEBUG] Initialized 5 bodies
+[2026-04-04 13:25:37.588922][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:25:37.589920][INFO] Max cycles: 100000000
+[2026-04-04 13:25:37.589920][INFO] Time step: 0.01
+[2026-04-04 13:25:37.590916][INFO] Grid: 300x300
+[2026-04-04 13:25:37.590916][INFO] Collision distance: 1.5
+[2026-04-04 13:25:37.591914][INFO] Min cycles required for 300 frames
+[2026-04-04 13:25:37.591914][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:25:37.592912][INFO] Debug mode ON
+
+[2026-04-04 13:25:40.810336][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 18750
+[2026-04-04 13:25:46.791709][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 54000
+[2026-04-04 13:25:47.172690][>>>]  COLLISION: Proxima d  and Toliman at cycle 56250
+[2026-04-04 13:25:59.888788][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 130500
+[2026-04-04 13:26:02.105839][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 143492
+[2026-04-04 13:26:02.106838][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:26:02.106838][DEBUG] Total frames generated: 191
+[2026-04-04 13:26:02.106838][DEBUG] Simulation generated 191 frames (min required: 300)
+[2026-04-04 13:26:02.107834][WARNING] Insufficient frames (191/300) - retrying simulation (attempt 8)
+[2026-04-04 13:26:02.156703][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:02.156703][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(174.0, 266.0), vel=(-0.055, -0.043)
+[2026-04-04 13:26:02.157702][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(175.0, 180.0), vel=(-0.000, -0.026)
+[2026-04-04 13:26:02.157702][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(223.0, 142.0), vel=(-0.078, 0.057)
+[2026-04-04 13:26:02.158698][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(260.0, 182.0), vel=(-0.014, -0.031)
+[2026-04-04 13:26:02.158698][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(244.0, 63.0), vel=(-0.001, 0.027)
+[2026-04-04 13:26:02.159697][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:02.159697][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:02.159697][INFO] Max cycles: 100000000
+[2026-04-04 13:26:02.160694][INFO] Time step: 0.01
+[2026-04-04 13:26:02.160694][INFO] Grid: 300x300
+[2026-04-04 13:26:02.161691][INFO] Collision distance: 1.5
+[2026-04-04 13:26:02.161691][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:02.162689][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:02.162689][INFO] Debug mode ON
+
+[2026-04-04 13:26:04.468522][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 13500
+[2026-04-04 13:26:04.962202][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 16500
+[2026-04-04 13:26:05.916681][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 21750
+[2026-04-04 13:26:08.236447][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 35250
+[2026-04-04 13:26:08.361113][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 36000
+[2026-04-04 13:26:09.475135][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 42750
+[2026-04-04 13:26:10.435567][>>>]  BOUNDARY EXIT: Proxima d  at cycle 48307
+[2026-04-04 13:26:10.436564][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:26:10.436564][DEBUG] Total frames generated: 64
+[2026-04-04 13:26:10.437562][DEBUG] Simulation generated 64 frames (min required: 300)
+[2026-04-04 13:26:10.437562][WARNING] Insufficient frames (64/300) - retrying simulation (attempt 9)
+[2026-04-04 13:26:10.451525][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:10.452522][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(204.0, 140.0), vel=(-0.088, 0.022)
+[2026-04-04 13:26:10.452522][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(142.0, 102.0), vel=(0.054, 0.012)
+[2026-04-04 13:26:10.453520][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(65.0, 41.0), vel=(0.050, 0.077)
+[2026-04-04 13:26:10.453520][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(101.0, 236.0), vel=(0.015, -0.077)
+[2026-04-04 13:26:10.454517][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(210.0, 98.0), vel=(-0.067, 0.015)
+[2026-04-04 13:26:10.454517][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:10.455514][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:10.455514][INFO] Max cycles: 100000000
+[2026-04-04 13:26:10.456512][INFO] Time step: 0.01
+[2026-04-04 13:26:10.456512][INFO] Grid: 300x300
+[2026-04-04 13:26:10.457508][INFO] Collision distance: 1.5
+[2026-04-04 13:26:10.457508][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:10.458507][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:10.459504][INFO] Debug mode ON
+
+[2026-04-04 13:26:15.216835][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 27750
+[2026-04-04 13:26:15.342499][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 28500
+[2026-04-04 13:26:15.470157][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 29250
+[2026-04-04 13:26:16.090498][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 33000
+[2026-04-04 13:26:16.216190][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 33750
+[2026-04-04 13:26:16.339831][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 34500
+[2026-04-04 13:26:18.299621][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 45750
+[2026-04-04 13:26:19.888372][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 54750
+[2026-04-04 13:26:30.383308][>>>]  BOUNDARY EXIT: Proxima d  at cycle 115724
+[2026-04-04 13:26:30.384277][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:26:30.384277][DEBUG] Total frames generated: 154
+[2026-04-04 13:26:30.385275][DEBUG] Simulation generated 154 frames (min required: 300)
+[2026-04-04 13:26:30.385275][WARNING] Insufficient frames (154/300) - retrying simulation (attempt 10)
+[2026-04-04 13:26:30.424171][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:30.424171][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(86.0, 221.0), vel=(0.058, -0.064)
+[2026-04-04 13:26:30.425169][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(63.0, 159.0), vel=(0.004, -0.100)
+[2026-04-04 13:26:30.425169][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(77.0, 159.0), vel=(0.087, -0.007)
+[2026-04-04 13:26:30.426166][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(117.0, 187.0), vel=(0.065, -0.082)
+[2026-04-04 13:26:30.426166][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(241.0, 172.0), vel=(-0.017, -0.014)
+[2026-04-04 13:26:30.427163][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:30.427163][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:30.427163][INFO] Max cycles: 100000000
+[2026-04-04 13:26:30.428160][INFO] Time step: 0.01
+[2026-04-04 13:26:30.428160][INFO] Grid: 300x300
+[2026-04-04 13:26:30.428160][INFO] Collision distance: 1.5
+[2026-04-04 13:26:30.429157][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:30.429157][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:30.430156][INFO] Debug mode ON
+
+[2026-04-04 13:26:30.806157][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 2250
+[2026-04-04 13:26:31.041550][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 3000
+[2026-04-04 13:26:31.790518][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 7500
+[2026-04-04 13:26:32.286192][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 10500
+[2026-04-04 13:26:32.410859][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 11250
+[2026-04-04 13:26:32.533561][>>>]  COLLISION: Proxima b  and Toliman at cycle 12000
+[2026-04-04 13:26:36.844036][>>>]  BOUNDARY EXIT: Proxima d  at cycle 37366
+[2026-04-04 13:26:36.844036][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:26:36.845033][DEBUG] Total frames generated: 49
+[2026-04-04 13:26:36.845033][DEBUG] Simulation generated 49 frames (min required: 300)
+[2026-04-04 13:26:36.846031][WARNING] Insufficient frames (49/300) - retrying simulation (attempt 11)
+[2026-04-04 13:26:36.855006][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:36.856004][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(168.0, 136.0), vel=(-0.077, 0.006)
+[2026-04-04 13:26:36.856004][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(144.0, 249.0), vel=(0.014, -0.049)
+[2026-04-04 13:26:36.857001][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(269.0, 141.0), vel=(-0.009, 0.093)
+[2026-04-04 13:26:36.857001][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(88.0, 36.0), vel=(0.047, 0.097)
+[2026-04-04 13:26:36.857999][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(122.0, 111.0), vel=(0.039, 0.099)
+[2026-04-04 13:26:36.857999][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:36.858997][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:36.858997][INFO] Max cycles: 100000000
+[2026-04-04 13:26:36.858997][INFO] Time step: 0.01
+[2026-04-04 13:26:36.859993][INFO] Grid: 300x300
+[2026-04-04 13:26:36.859993][INFO] Collision distance: 1.5
+[2026-04-04 13:26:36.860991][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:36.860991][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:36.861988][INFO] Debug mode ON
+
+[2026-04-04 13:26:40.798495][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 22500
+[2026-04-04 13:26:40.964415][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 23250
+[2026-04-04 13:26:41.089081][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 24000
+[2026-04-04 13:26:42.927166][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 34500
+[2026-04-04 13:26:44.530878][>>>]  COLLISION: Proxima b  and Toliman at cycle 44250
+[2026-04-04 13:26:44.657539][>>>]  COLLISION: Proxima b  and Toliman at cycle 45000
+[2026-04-04 13:26:46.755929][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 57000
+[2026-04-04 13:26:46.882590][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 57750
+[2026-04-04 13:26:47.994617][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 63750
+[2026-04-04 13:26:48.117312][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 64500
+[2026-04-04 13:26:50.135892][>>>]  BOUNDARY EXIT: Proxima b  at cycle 75831
+[2026-04-04 13:26:50.135892][>>>] Simulation completed: boundary_exit_Proxima b 
+[2026-04-04 13:26:50.136889][DEBUG] Total frames generated: 101
+[2026-04-04 13:26:50.136889][DEBUG] Simulation generated 101 frames (min required: 300)
+[2026-04-04 13:26:50.137886][WARNING] Insufficient frames (101/300) - retrying simulation (attempt 12)
+[2026-04-04 13:26:50.160824][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:50.161822][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(206.0, 60.0), vel=(-0.009, 0.078)
+[2026-04-04 13:26:50.161822][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(119.0, 77.0), vel=(0.088, 0.076)
+[2026-04-04 13:26:50.162820][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(241.0, 158.0), vel=(-0.079, -0.083)
+[2026-04-04 13:26:50.163817][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(225.0, 156.0), vel=(-0.040, -0.061)
+[2026-04-04 13:26:50.164814][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(164.0, 230.0), vel=(-0.081, -0.018)
+[2026-04-04 13:26:50.164814][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:50.165812][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:50.165812][INFO] Max cycles: 100000000
+[2026-04-04 13:26:50.166809][INFO] Time step: 0.01
+[2026-04-04 13:26:50.166809][INFO] Grid: 300x300
+[2026-04-04 13:26:50.167807][INFO] Collision distance: 1.5
+[2026-04-04 13:26:50.167807][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:50.167807][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:50.168803][INFO] Debug mode ON
+
+[2026-04-04 13:26:50.549975][>>>]  BOUNDARY EXIT: Toliman at cycle 2384
+[2026-04-04 13:26:50.550974][>>>] Simulation completed: boundary_exit_Toliman
+[2026-04-04 13:26:50.550974][DEBUG] Total frames generated: 3
+[2026-04-04 13:26:50.551946][DEBUG] Simulation generated 3 frames (min required: 300)
+[2026-04-04 13:26:50.551946][WARNING] Insufficient frames (3/300) - retrying simulation (attempt 13)
+[2026-04-04 13:26:50.552943][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:50.553940][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(98.0, 124.0), vel=(0.098, 0.032)
+[2026-04-04 13:26:50.553940][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(261.0, 200.0), vel=(-0.052, -0.086)
+[2026-04-04 13:26:50.554937][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(229.0, 174.0), vel=(-0.039, -0.074)
+[2026-04-04 13:26:50.554937][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(249.0, 127.0), vel=(-0.076, 0.009)
+[2026-04-04 13:26:50.554937][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(43.0, 183.0), vel=(0.048, -0.060)
+[2026-04-04 13:26:50.555934][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:50.555934][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:50.556932][INFO] Max cycles: 100000000
+[2026-04-04 13:26:50.556932][INFO] Time step: 0.01
+[2026-04-04 13:26:50.556932][INFO] Grid: 300x300
+[2026-04-04 13:26:50.557930][INFO] Collision distance: 1.5
+[2026-04-04 13:26:50.557930][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:50.558927][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:50.559924][INFO] Debug mode ON
+
+[2026-04-04 13:26:52.798936][>>>]  BOUNDARY EXIT: Toliman at cycle 13111
+[2026-04-04 13:26:52.799934][>>>] Simulation completed: boundary_exit_Toliman
+[2026-04-04 13:26:52.799934][DEBUG] Total frames generated: 17
+[2026-04-04 13:26:52.799934][DEBUG] Simulation generated 17 frames (min required: 300)
+[2026-04-04 13:26:52.800931][WARNING] Insufficient frames (17/300) - retrying simulation (attempt 14)
+[2026-04-04 13:26:52.803923][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:52.804920][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(154.0, 264.0), vel=(-0.049, -0.041)
+[2026-04-04 13:26:52.805919][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(151.0, 40.0), vel=(-0.005, 0.009)
+[2026-04-04 13:26:52.805919][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(154.0, 236.0), vel=(-0.072, -0.001)
+[2026-04-04 13:26:52.805919][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(54.0, 207.0), vel=(0.018, -0.097)
+[2026-04-04 13:26:52.806916][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(224.0, 186.0), vel=(-0.059, -0.076)
+[2026-04-04 13:26:52.806916][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:52.807913][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:52.807913][INFO] Max cycles: 100000000
+[2026-04-04 13:26:52.808910][INFO] Time step: 0.01
+[2026-04-04 13:26:52.808910][INFO] Grid: 300x300
+[2026-04-04 13:26:52.809907][INFO] Collision distance: 1.5
+[2026-04-04 13:26:52.809907][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:52.810905][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:52.811902][INFO] Debug mode ON
+
+[2026-04-04 13:26:53.806262][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 6000
+[2026-04-04 13:26:53.946867][>>>]  BOUNDARY EXIT: Proxima b  at cycle 7420
+[2026-04-04 13:26:53.946867][>>>] Simulation completed: boundary_exit_Proxima b 
+[2026-04-04 13:26:53.947866][DEBUG] Total frames generated: 9
+[2026-04-04 13:26:53.947866][DEBUG] Simulation generated 9 frames (min required: 300)
+[2026-04-04 13:26:53.947866][WARNING] Insufficient frames (9/300) - retrying simulation (attempt 15)
+[2026-04-04 13:26:53.950857][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:26:53.950857][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(194.0, 52.0), vel=(-0.077, 0.028)
+[2026-04-04 13:26:53.951854][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(43.0, 153.0), vel=(0.007, -0.057)
+[2026-04-04 13:26:53.951854][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(265.0, 57.0), vel=(-0.051, 0.073)
+[2026-04-04 13:26:53.952852][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(211.0, 168.0), vel=(-0.099, -0.071)
+[2026-04-04 13:26:53.952852][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(169.0, 126.0), vel=(-0.043, 0.053)
+[2026-04-04 13:26:53.953849][DEBUG] Initialized 5 bodies
+[2026-04-04 13:26:53.953849][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:26:53.954846][INFO] Max cycles: 100000000
+[2026-04-04 13:26:53.954846][INFO] Time step: 0.01
+[2026-04-04 13:26:53.955844][INFO] Grid: 300x300
+[2026-04-04 13:26:53.955844][INFO] Collision distance: 1.5
+[2026-04-04 13:26:53.956841][INFO] Min cycles required for 300 frames
+[2026-04-04 13:26:53.957839][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:26:53.957839][INFO] Debug mode ON
+
+[2026-04-04 13:26:56.701050][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 15000
+[2026-04-04 13:26:58.688707][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 27000
+[2026-04-04 13:27:00.316355][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 36000
+[2026-04-04 13:27:02.192339][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 46500
+[2026-04-04 13:27:04.059346][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 57000
+[2026-04-04 13:27:04.317656][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 58813
+[2026-04-04 13:27:04.318653][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:27:04.318653][DEBUG] Total frames generated: 78
+[2026-04-04 13:27:04.319651][DEBUG] Simulation generated 78 frames (min required: 300)
+[2026-04-04 13:27:04.319651][WARNING] Insufficient frames (78/300) - retrying simulation (attempt 16)
+[2026-04-04 13:27:04.336605][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:04.337603][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(241.0, 243.0), vel=(-0.052, -0.030)
+[2026-04-04 13:27:04.338601][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(263.0, 94.0), vel=(-0.049, 0.092)
+[2026-04-04 13:27:04.339597][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(97.0, 47.0), vel=(0.063, 0.057)
+[2026-04-04 13:27:04.339597][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(172.0, 145.0), vel=(-0.010, 0.005)
+[2026-04-04 13:27:04.339597][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(130.0, 109.0), vel=(0.088, 0.070)
+[2026-04-04 13:27:04.340595][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:04.341593][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:04.341593][INFO] Max cycles: 100000000
+[2026-04-04 13:27:04.342590][INFO] Time step: 0.01
+[2026-04-04 13:27:04.342590][INFO] Grid: 300x300
+[2026-04-04 13:27:04.343587][INFO] Collision distance: 1.5
+[2026-04-04 13:27:04.343587][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:04.344584][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:04.344584][INFO] Debug mode ON
+
+[2026-04-04 13:27:06.952638][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 15000
+[2026-04-04 13:27:09.066956][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 27000
+[2026-04-04 13:27:10.436295][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 35250
+[2026-04-04 13:27:11.313948][>>>]  COLLISION: Proxima d  and Toliman at cycle 39750
+[2026-04-04 13:27:13.556019][>>>]  COLLISION: Proxima b  and Toliman at cycle 52500
+[2026-04-04 13:27:14.686995][>>>]  BOUNDARY EXIT: Proxima d  at cycle 59758
+[2026-04-04 13:27:14.686995][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:27:14.687993][DEBUG] Total frames generated: 79
+[2026-04-04 13:27:14.687993][DEBUG] Simulation generated 79 frames (min required: 300)
+[2026-04-04 13:27:14.688990][WARNING] Insufficient frames (79/300) - retrying simulation (attempt 17)
+[2026-04-04 13:27:14.705973][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:14.706942][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(96.0, 193.0), vel=(0.000, -0.099)
+[2026-04-04 13:27:14.706942][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(198.0, 193.0), vel=(-0.019, -0.049)
+[2026-04-04 13:27:14.707939][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(40.0, 48.0), vel=(0.017, 0.056)
+[2026-04-04 13:27:14.708937][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(203.0, 241.0), vel=(-0.083, -0.037)
+[2026-04-04 13:27:14.708937][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(267.0, 266.0), vel=(-0.050, -0.096)
+[2026-04-04 13:27:14.709935][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:14.709935][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:14.710931][INFO] Max cycles: 100000000
+[2026-04-04 13:27:14.710931][INFO] Time step: 0.01
+[2026-04-04 13:27:14.710931][INFO] Grid: 300x300
+[2026-04-04 13:27:14.711929][INFO] Collision distance: 1.5
+[2026-04-04 13:27:14.711929][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:14.712927][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:14.713924][INFO] Debug mode ON
+
+[2026-04-04 13:27:17.721880][>>>]  COLLISION: Proxima d  and Toliman at cycle 16500
+[2026-04-04 13:27:17.846575][>>>]  COLLISION: Proxima d  and Toliman at cycle 17250
+[2026-04-04 13:27:19.449261][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 27000
+[2026-04-04 13:27:22.189961][>>>]  COLLISION: Proxima d  and Toliman at cycle 42750
+[2026-04-04 13:27:22.462204][>>>]  COLLISION: Proxima d  and Toliman at cycle 43500
+[2026-04-04 13:27:26.339865][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 66000
+[2026-04-04 13:27:26.466555][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 66750
+[2026-04-04 13:27:26.593217][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 67500
+[2026-04-04 13:27:26.718880][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 68250
+[2026-04-04 13:27:26.844572][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 69000
+[2026-04-04 13:27:27.119836][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 69750
+[2026-04-04 13:27:27.989599][>>>]  COLLISION: Proxima d  and Toliman at cycle 75000
+[2026-04-04 13:27:28.117258][>>>]  COLLISION: Proxima d  and Toliman at cycle 75750
+[2026-04-04 13:27:28.366563][>>>]  COLLISION: Proxima b  and Toliman at cycle 77250
+[2026-04-04 13:27:28.613927][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 78750
+[2026-04-04 13:27:28.990893][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 81000
+[2026-04-04 13:27:29.642152][>>>]  COLLISION: Toliman and Proxima Centauri at cycle 84000
+[2026-04-04 13:27:30.017215][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 86250
+[2026-04-04 13:27:32.160484][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 98250
+[2026-04-04 13:27:32.671120][>>>]  BOUNDARY EXIT: Proxima d  at cycle 101561
+[2026-04-04 13:27:32.672089][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:27:32.672089][DEBUG] Total frames generated: 135
+[2026-04-04 13:27:32.673086][DEBUG] Simulation generated 135 frames (min required: 300)
+[2026-04-04 13:27:32.673086][WARNING] Insufficient frames (135/300) - retrying simulation (attempt 18)
+[2026-04-04 13:27:32.706995][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:32.706995][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(263.0, 176.0), vel=(-0.061, -0.007)
+[2026-04-04 13:27:32.707992][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(235.0, 199.0), vel=(-0.010, -0.020)
+[2026-04-04 13:27:32.707992][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(213.0, 45.0), vel=(-0.040, 0.071)
+[2026-04-04 13:27:32.708990][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(170.0, 178.0), vel=(-0.063, -0.018)
+[2026-04-04 13:27:32.708990][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(32.0, 69.0), vel=(0.009, 0.079)
+[2026-04-04 13:27:32.709987][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:32.709987][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:32.710985][INFO] Max cycles: 100000000
+[2026-04-04 13:27:32.710985][INFO] Time step: 0.01
+[2026-04-04 13:27:32.711982][INFO] Grid: 300x300
+[2026-04-04 13:27:32.711982][INFO] Collision distance: 1.5
+[2026-04-04 13:27:32.712979][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:32.712979][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:32.713977][INFO] Debug mode ON
+
+[2026-04-04 13:27:38.332993][>>>]  COLLISION: Proxima d  and Toliman at cycle 32250
+[2026-04-04 13:27:38.581360][>>>]  COLLISION: Proxima b  and Proxima d  at cycle 33750
+[2026-04-04 13:27:38.985277][>>>]  COLLISION: Proxima b  and Toliman at cycle 35250
+[2026-04-04 13:27:39.110914][>>>]  COLLISION: Proxima b  and Toliman at cycle 36000
+[2026-04-04 13:27:40.467361][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 44250
+[2026-04-04 13:27:42.486996][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 55500
+[2026-04-04 13:27:42.613657][>>>]  COLLISION: Proxima d  and Rigil Kentaurus at cycle 56250
+[2026-04-04 13:27:44.522577][>>>]  BOUNDARY EXIT: Proxima b  at cycle 67478
+[2026-04-04 13:27:44.523550][>>>] Simulation completed: boundary_exit_Proxima b 
+[2026-04-04 13:27:44.523550][DEBUG] Total frames generated: 89
+[2026-04-04 13:27:44.524549][DEBUG] Simulation generated 89 frames (min required: 300)
+[2026-04-04 13:27:44.525546][WARNING] Insufficient frames (89/300) - retrying simulation (attempt 19)
+[2026-04-04 13:27:44.546489][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:44.546489][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(210.0, 178.0), vel=(-0.079, -0.065)
+[2026-04-04 13:27:44.547486][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(131.0, 127.0), vel=(0.002, 0.053)
+[2026-04-04 13:27:44.547486][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(231.0, 76.0), vel=(-0.064, 0.096)
+[2026-04-04 13:27:44.548483][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(37.0, 70.0), vel=(0.068, 0.058)
+[2026-04-04 13:27:44.548483][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(233.0, 58.0), vel=(-0.099, 0.053)
+[2026-04-04 13:27:44.549481][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:44.549481][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:44.549481][INFO] Max cycles: 100000000
+[2026-04-04 13:27:44.550478][INFO] Time step: 0.01
+[2026-04-04 13:27:44.550478][INFO] Grid: 300x300
+[2026-04-04 13:27:44.551477][INFO] Collision distance: 1.5
+[2026-04-04 13:27:44.551477][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:44.552474][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:44.552474][INFO] Debug mode ON
+
+[2026-04-04 13:27:45.052136][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 3000
+[2026-04-04 13:27:45.428218][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 5509
+[2026-04-04 13:27:45.429216][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:27:45.429216][DEBUG] Total frames generated: 7
+[2026-04-04 13:27:45.430213][DEBUG] Simulation generated 7 frames (min required: 300)
+[2026-04-04 13:27:45.430213][WARNING] Insufficient frames (7/300) - retrying simulation (attempt 20)
+[2026-04-04 13:27:45.432234][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:45.432234][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(130.0, 100.0), vel=(0.046, 0.039)
+[2026-04-04 13:27:45.433205][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(238.0, 208.0), vel=(-0.065, -0.031)
+[2026-04-04 13:27:45.433205][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(170.0, 34.0), vel=(-0.047, 0.033)
+[2026-04-04 13:27:45.434203][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(262.0, 128.0), vel=(-0.052, 0.004)
+[2026-04-04 13:27:45.434203][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(113.0, 176.0), vel=(0.009, -0.034)
+[2026-04-04 13:27:45.435200][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:45.435200][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:45.435200][INFO] Max cycles: 100000000
+[2026-04-04 13:27:45.436197][INFO] Time step: 0.01
+[2026-04-04 13:27:45.436197][INFO] Grid: 300x300
+[2026-04-04 13:27:45.437194][INFO] Collision distance: 1.5
+[2026-04-04 13:27:45.437194][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:45.437194][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:45.438192][INFO] Debug mode ON
+
+[2026-04-04 13:27:50.459765][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 28500
+[2026-04-04 13:27:50.752012][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 29250
+[2026-04-04 13:27:51.492005][>>>]  COLLISION: Proxima d  and Toliman at cycle 33750
+[2026-04-04 13:27:56.285210][>>>]  BOUNDARY EXIT: Proxima Centauri at cycle 60782
+[2026-04-04 13:27:56.286185][>>>] Simulation completed: boundary_exit_Proxima Centauri
+[2026-04-04 13:27:56.286185][DEBUG] Total frames generated: 81
+[2026-04-04 13:27:56.286185][DEBUG] Simulation generated 81 frames (min required: 300)
+[2026-04-04 13:27:56.287183][WARNING] Insufficient frames (81/300) - retrying simulation (attempt 21)
+[2026-04-04 13:27:56.305135][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:56.305135][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(152.0, 134.0), vel=(-0.061, 0.049)
+[2026-04-04 13:27:56.306133][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(232.0, 105.0), vel=(-0.069, 0.004)
+[2026-04-04 13:27:56.307130][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(219.0, 81.0), vel=(-0.056, 0.065)
+[2026-04-04 13:27:56.307130][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(56.0, 84.0), vel=(0.016, 0.087)
+[2026-04-04 13:27:56.307130][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(178.0, 162.0), vel=(-0.094, -0.033)
+[2026-04-04 13:27:56.308164][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:56.308164][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:56.309123][INFO] Max cycles: 100000000
+[2026-04-04 13:27:56.309123][INFO] Time step: 0.01
+[2026-04-04 13:27:56.309123][INFO] Grid: 300x300
+[2026-04-04 13:27:56.310133][INFO] Collision distance: 1.5
+[2026-04-04 13:27:56.310133][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:56.311119][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:56.311119][INFO] Debug mode ON
+
+[2026-04-04 13:27:58.095350][>>>]  BOUNDARY EXIT: Proxima d  at cycle 10149
+[2026-04-04 13:27:58.095350][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:27:58.096345][DEBUG] Total frames generated: 13
+[2026-04-04 13:27:58.096345][DEBUG] Simulation generated 13 frames (min required: 300)
+[2026-04-04 13:27:58.097343][WARNING] Insufficient frames (13/300) - retrying simulation (attempt 22)
+[2026-04-04 13:27:58.099365][INFO] RANDOMIZING BODY POSITIONS AND VELOCITIES
+[2026-04-04 13:27:58.100334][DEBUG] Body Proxima b : mass=0.01, size=10.00, pos=(171.0, 208.0), vel=(-0.064, -0.096)
+[2026-04-04 13:27:58.100334][DEBUG] Body Proxima d : mass=0.02, size=14.14, pos=(121.0, 248.0), vel=(0.008, -0.056)
+[2026-04-04 13:27:58.101332][DEBUG] Body Rigil Kentaurus: mass=0.6, size=77.46, pos=(221.0, 153.0), vel=(-0.065, -0.037)
+[2026-04-04 13:27:58.101332][DEBUG] Body Toliman: mass=0.5, size=70.71, pos=(85.0, 187.0), vel=(0.029, -0.000)
+[2026-04-04 13:27:58.102329][DEBUG] Body Proxima Centauri: mass=0.12, size=34.64, pos=(194.0, 236.0), vel=(-0.100, -0.044)
+[2026-04-04 13:27:58.102329][DEBUG] Initialized 5 bodies
+[2026-04-04 13:27:58.103326][TITLE] THREE BODY PROBLEM SIMULATION
+[2026-04-04 13:27:58.103326][INFO] Max cycles: 100000000
+[2026-04-04 13:27:58.104325][INFO] Time step: 0.01
+[2026-04-04 13:27:58.104325][INFO] Grid: 300x300
+[2026-04-04 13:27:58.104325][INFO] Collision distance: 1.5
+[2026-04-04 13:27:58.105322][INFO] Min cycles required for 300 frames
+[2026-04-04 13:27:58.105322][INFO] Bodies: ['Proxima b ', 'Proxima d ', 'Rigil Kentaurus', 'Toliman', 'Proxima Centauri']
+
+[2026-04-04 13:27:58.106319][INFO] Debug mode ON
+
+[2026-04-04 13:28:02.104657][>>>]  COLLISION: Proxima d  and Toliman at cycle 23250
+[2026-04-04 13:28:02.264200][>>>]  COLLISION: Proxima d  and Toliman at cycle 24000
+[2026-04-04 13:28:03.923788][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 33000
+[2026-04-04 13:28:05.343993][>>>]  COLLISION: Proxima b  and Rigil Kentaurus at cycle 40500
+[2026-04-04 13:28:05.469630][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 41250
+[2026-04-04 13:28:05.594324][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 42000
+[2026-04-04 13:28:15.729241][>>>]  COLLISION: Proxima b  and Toliman at cycle 99000
+[2026-04-04 13:28:15.852910][>>>]  COLLISION: Proxima b  and Toliman at cycle 99750
+[2026-04-04 13:28:17.410807][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 108000
+[2026-04-04 13:28:17.537439][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 108750
+[2026-04-04 13:28:17.662135][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 109500
+[2026-04-04 13:28:27.844928][>>>]  COLLISION: Rigil Kentaurus and Toliman at cycle 166500
+[2026-04-04 13:28:28.092359][>>>]  COLLISION: Rigil Kentaurus and Proxima Centauri at cycle 168000
+[2026-04-04 13:28:39.041126][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 228000
+[2026-04-04 13:28:39.171778][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 228750
+[2026-04-04 13:28:39.299465][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 229500
+[2026-04-04 13:28:40.172102][>>>]  COLLISION: Proxima d  and Toliman at cycle 234750
+[2026-04-04 13:28:40.299121][>>>]  COLLISION: Proxima d  and Toliman at cycle 235500
+[2026-04-04 13:28:41.996581][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 244500
+[2026-04-04 13:28:42.123243][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 245250
+[2026-04-04 13:28:42.247950][>>>]  COLLISION: Proxima b  and Proxima Centauri at cycle 246000
+[2026-04-04 13:28:42.620912][>>>]  COLLISION: Proxima d  and Toliman at cycle 248250
+[2026-04-04 13:28:42.747574][>>>]  COLLISION: Proxima d  and Toliman at cycle 249000
+[2026-04-04 13:28:45.070362][>>>]  COLLISION: Proxima d  and Toliman at cycle 261750
+[2026-04-04 13:28:45.197024][>>>]  COLLISION: Proxima d  and Toliman at cycle 262500
+[2026-04-04 13:28:47.514854][>>>]  COLLISION: Proxima d  and Toliman at cycle 275250
+[2026-04-04 13:28:47.638496][>>>]  COLLISION: Proxima d  and Toliman at cycle 276000
+[2026-04-04 13:28:49.098592][>>>]  COLLISION: Proxima d  and Proxima Centauri at cycle 283500
+[2026-04-04 13:28:49.222285][>>>]  COLLISION: Proxima d  and Toliman at cycle 284250
+[2026-04-04 13:28:49.729928][>>>]  BOUNDARY EXIT: Proxima d  at cycle 287816
+[2026-04-04 13:28:49.729928][>>>] Simulation completed: boundary_exit_Proxima d 
+[2026-04-04 13:28:49.730901][DEBUG] Total frames generated: 383
+[2026-04-04 13:28:49.730901][DEBUG] Simulation generated 383 frames (min required: 300)
+[2026-04-04 13:28:49.730901][INFO] SIMULATION VALIDATION SUCCESS: 383 frames after 22 retries.
+[2026-04-04 13:28:49.731899][DEBUG] Validation complete. Ready for visualization.
+[2026-04-04 13:28:49.919430][INFO] 
+FINAL STATE OF BODIES:
+[2026-04-04 13:28:49.920395][INFO] Body: Proxima b 
+  Mass: 0.01 kg
+  Position: x=50.70, y=104.53
+  Velocity: x=-3.43e-01, y=2.45e-01
+  Acceleration: x=-4.07e-03, y=1.59e-02
+
+[2026-04-04 13:28:49.920395][INFO] Body: Proxima d 
+  Mass: 0.02 kg
+  Position: x=92.10, y=320.05
+  Velocity: x=-6.19e-01, y=6.34e+00
+  Acceleration: x=-2.50e-05, y=-2.58e-04
+
+[2026-04-04 13:28:49.921393][INFO] Body: Rigil Kentaurus
+  Mass: 0.60 kg
+  Position: x=44.78, y=122.24
+  Velocity: x=1.93e-01, y=-1.09e-01
+  Acceleration: x=1.04e-03, y=-7.50e-04
+
+[2026-04-04 13:28:49.922389][INFO] Body: Toliman
+  Mass: 0.50 kg
+  Position: x=113.80, y=95.83
+  Velocity: x=-8.85e-02, y=-8.28e-03
+  Acceleration: x=-1.30e-03, y=8.54e-06
+
+[2026-04-04 13:28:49.922389][INFO] Body: Proxima Centauri
+  Mass: 0.12 kg
+  Position: x=86.78, y=52.56
+  Velocity: x=-7.73e-01, y=-7.46e-01
+  Acceleration: x=5.36e-04, y=2.43e-03
+
+[2026-04-04 13:28:49.923387][INFO] 
+GENERATING VISUALIZATIONS...
+[2026-04-04 13:28:49.923387][DEBUG] Starting trajectory generation
+[2026-04-04 13:28:49.924383][DEBUG] Generating trajectory plot...
+[2026-04-04 13:28:51.517153][DEBUG] Trajectory plot complete
+[2026-04-04 13:28:51.518122][DEBUG] Generating distance plot...
+[2026-04-04 13:28:53.752393][DEBUG] Distance plot complete
+[2026-04-04 13:28:53.752393][DEBUG] Generating velocity plot...
+[2026-04-04 13:28:57.390665][DEBUG] Velocity plot complete
+[2026-04-04 13:28:57.390665][DEBUG] Saving frames as video...
+[2026-04-04 13:29:01.005998][DEBUG] Video saved successfully
+[2026-04-04 13:29:01.005998][INFO] ============================================================
+[2026-04-04 13:29:01.006995][TITLE] SIMULATION COMPLETE - All files saved successfully!
+[2026-04-04 13:29:01.006995][INFO] ============================================================

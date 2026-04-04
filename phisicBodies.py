@@ -4,16 +4,6 @@ import math
 class Body:
     GRAVITATIONAL_CONSTANT = 10.0  
     def __init__(self, mass, velocity, position, size=1.0, name=None):
-        """
-        Initialize a celestial body.
-        
-        Args:
-            mass: Body mass in kilograms
-            velocity: Initial velocity {'x': vx, 'y': vy}
-            position: Initial position {'x': px, 'y': py}
-            name: Optional body identifier
-            size: Visual size in pixels (default: 1.0)
-        """
         self.size = float(size) 
         self.name = name
         self.mass = float(mass)

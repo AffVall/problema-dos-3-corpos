@@ -85,7 +85,7 @@ def check_collision(bodies: List[Body], collision_dist: float) -> Tuple[bool, st
 
 
 def check_boundary_exit(bodies: List[Body], grid_w: float, grid_h: float) -> Tuple[bool, str]:
-    margin_w, margin_h = max(10, int(grid_w * 1.25)), max(10, int(grid_h * 1.25))
+    margin_w, margin_h = max(10, int(grid_w * 0.25)), max(10, int(grid_h * 0.25))
     for body in bodies:
         x, y = body.position['x'], body.position['y']
         if x < -margin_w or x > grid_w + margin_w or y < -margin_h or y > grid_h + margin_h:

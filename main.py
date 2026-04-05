@@ -4,10 +4,11 @@ from typing import List, Tuple, Dict
 
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import cv2
-
+plt.ion()
+fig, ax = plt.subplots(figsize=(10, 10))
 from phisicBodies import Body
 from config import Config
 
@@ -48,11 +49,11 @@ def randomize_body_positions(config: Config, bodies: List[Dict]) -> None:
     grid_h = config['grid_height']
     min_vel = config['min_velocity']
     max_vel = config['max_velocity']
-    margin = max(10, int(grid_w * 0.1)) 
+    margin_w, margin_h = max(10, int(grid_w * 0.8)), max(10, int(grid_h * 0.8))
     
     for body_data in bodies:
-        pos_x = randint(margin, grid_w - margin)
-        pos_y = randint(margin, grid_h - margin)
+        pos_x = randint(10,  margin_w)
+        pos_y = randint(10,  margin_h)
         vel_x = uniform(min_vel, max_vel)
         vel_y = uniform(min_vel, max_vel)
         
@@ -83,11 +84,11 @@ def check_collision(bodies: List[Body], collision_dist: float) -> Tuple[bool, st
     return False, None, None
 
 
-def check_boundary_exit(bodies: List[Body], grid_w: float, grid_h: float, 
-                        margin: float = 20) -> Tuple[bool, str]:
+def check_boundary_exit(bodies: List[Body], grid_w: float, grid_h: float) -> Tuple[bool, str]:
+    margin_w, margin_h = max(10, int(grid_w * 1.25)), max(10, int(grid_h * 1.25))
     for body in bodies:
         x, y = body.position['x'], body.position['y']
-        if x < -margin or x > grid_w + margin or y < -margin or y > grid_h + margin:
+        if x < -margin_w or x > grid_w + margin_w or y < -margin_h or y > grid_h + margin_h:
             return True, body.name
     return False, None
 
@@ -105,33 +106,40 @@ def update_system(bodies: List[Body], time_step: float) -> None:
         body.update_position(time_step)
 
 
-def save_frame(bodies: List[Body], cycle: int, saved_frames: list, 
-               grid_w: float, grid_h: float, dpi: int) -> List:
+def plot_config(ax : plt.Axes, bodies : list, grid_w: float, grid_h: float) -> None:
+    
+    ax.grid(True, alpha=0.3, linestyle='--')
+    ax.set_xlabel('X (units)', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Y (units)', fontsize=12, fontweight='bold')
+    ax.set_title(f'Three Body Problem', fontsize=14, fontweight='bold') 
+    ax.grid(True, alpha=0.3, linestyle='--')
+    ax.set_aspect('equal', adjustable='box')
+    xs = [body.position['x'] for body in bodies]
+    ys = [body.position['y'] for body in bodies]
+    ax.set_xlim(min(-10, (min(xs) - 10)), max((grid_w + 10), (max(xs) + 10)))
+    ax.set_ylim(min(-10, (min(ys) - 10)), max((grid_h + 10), (max(ys) + 10)))
+    return None
 
-    plt.figure(figsize=(10, 10))
-    
+
+def save_frame(ax: plt.Axes, bodies: List[Body], saved_frames: list, dpi: int) -> List:
     for body, b_color in zip(bodies, COLORS):
-        plt.scatter(body.position['x'], body.position['y'],
-                   s=body.size, color=b_color, alpha=0.8, edgecolors='black', 
-                   linewidth=1.5, label=body.name)
-    
-    plt.xlim(-5, grid_w + 5)
-    plt.ylim(-5, grid_h + 5)
-    plt.xlabel('X (units)', fontsize=12, fontweight='bold')
-    plt.ylabel('Y (units)', fontsize=12, fontweight='bold')
-    plt.title(f'Three Body Problem - Cycle {cycle}', fontsize=14, fontweight='bold')
-    plt.legend(loc='upper right', fontsize=10)
-    plt.grid(True, alpha=0.3, linestyle='--')
-    plt.gca().set_aspect('equal')
+        ax.scatter(body.position['x'], body.position['y'],
+            s=body.size, color=b_color, alpha=0.8, edgecolors='black', 
+            linewidth=1.5, label=body.name)
+        ax.scatter(body.position['x'], body.position['y'],
+                s=body.size, color=b_color, alpha=0.8,
+                edgecolors='black', linewidth=1.5, label=body.name)
+    ax.figure.set_dpi(dpi)
+    fig.canvas.flush_events()
      
-    frame = plt.gcf()
-    frame.canvas.draw()
+    frame = ax.get_figure()
     width, height = frame.canvas.get_width_height()
     img = np.frombuffer(frame.canvas.tostring_argb(), dtype=np.uint8)
     img = img.reshape((height, width, 4))
     img = img[:, :, 1:] 
     saved_frames.append(img)
-    plt.close()
+    
+    ax.clear()
     return saved_frames
 
 
@@ -158,6 +166,7 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
     
     termination = "max_cycles"
     
+    
     for cycle in range(max_cycles * frame_interval):
         for body in bodies:
             trajectories[body.name]['x'].append(body.position['x'])
@@ -166,7 +175,8 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
         update_system(bodies, time_step)
         
         if (cycle + 1) % frame_interval == 0:
-            frames = save_frame(bodies, cycle, frames, grid_w, grid_h, dpi)
+            plot_config(ax, bodies, grid_w, grid_h)
+            frames = save_frame(ax, bodies, frames, dpi)
             if len(frames) % 10 == 0:
                 config.log(f"Cycle {cycle + 1}: Frame saved (Total frames: {len(frames)})", "DEBUG")
             collided, b1, b2 = check_collision(bodies, collision_dist)
@@ -178,8 +188,8 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
                 for body in bodies:
                     trajectories[body.name]['x'].append(body.position['x'])
                     trajectories[body.name]['y'].append(body.position['y'])
+
                 break
-        
         exited, name = check_boundary_exit(bodies, grid_w, grid_h)
         if exited:
             config.log(f" BOUNDARY EXIT: {name} at cycle {cycle + 1}", ">>>")
@@ -245,8 +255,6 @@ def plot_trajectories(trajectories: Dict, bodies: List[Body],
     output = os.path.join(results_dir, 'trajectories.png')
     plt.savefig(output, dpi=dpi, bbox_inches='tight', facecolor='white')
 
-    plt.close()
-
 
 def plot_distances(trajectories: Dict, bodies: List[Body],
                   results_dir: str, dpi: int, hq: bool) -> None:
@@ -276,7 +284,6 @@ def plot_distances(trajectories: Dict, bodies: List[Body],
     output = os.path.join(results_dir, 'distances.png')
     plt.savefig(output, dpi=dpi, bbox_inches='tight', facecolor='white')
     print(f"[OK] Distances: {output}")
-    plt.close()
 
 
 def plot_velocities(trajectories: Dict, bodies: List[Body],
@@ -305,7 +312,6 @@ def plot_velocities(trajectories: Dict, bodies: List[Body],
     output = os.path.join(results_dir, 'velocity.png')
     plt.savefig(output, dpi=dpi, bbox_inches='tight', facecolor='white')
     print(f"[OK] Velocity: {output}")
-    plt.close()
 
 
 def video_from_frames(saved_frames: list, results_dir: str, fps: int = 10) -> None:

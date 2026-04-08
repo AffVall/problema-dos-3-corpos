@@ -17,9 +17,9 @@ COLORS = ['#FF6B6B', '#4ECDC4', "#09FF00", "#F107AB", '#FFE66D', '#FF9F1C', '#2E
 
 def calculate_body_size(body: Dict, config: Config) -> float:
     if config['calculate_sizes']:
-        scale = config.get('size_scale_factor', 8)
+        scale = config.get('size_scale_factor', 100)
         size = np.sqrt(body['mass']) * scale
-        return max(10.0, min(100.0, size))
+        return max(5.0, min(100.0, size))
     return 25.0
 
 
@@ -56,16 +56,6 @@ def randomize_body_positions(config: Config, bodies: List[Dict]) -> None:
         pos_y = randint(10,  margin_h)
         vel_x = uniform(min_vel, max_vel)
         vel_y = uniform(min_vel, max_vel)
-        
-        if pos_x < grid_w / 2 and vel_x < 0:
-            vel_x = abs(vel_x)
-        elif pos_x >= grid_w / 2 and vel_x > 0:
-            vel_x = -abs(vel_x)
-        
-        if pos_y < grid_h / 2 and vel_y < 0:
-            vel_y = abs(vel_y)
-        elif pos_y >= grid_h / 2 and vel_y > 0:
-            vel_y = -abs(vel_y)
 
         body_data['pos_x'] = float(pos_x)
         body_data['pos_y'] = float(pos_y)

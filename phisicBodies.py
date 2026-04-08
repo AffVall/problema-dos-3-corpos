@@ -3,10 +3,11 @@ import math
 
 class Body:
     GRAVITATIONAL_CONSTANT = 10.0  
-    def __init__(self, mass, velocity, position, size=1.0, name=None):
+    def __init__(self, mass, velocity, position, max_velocity=0.1, size=1.0, name=None):
         self.size = float(size) 
         self.name = name
         self.mass = float(mass)
+        self.max_velocity = float(max_velocity)
         
         if isinstance(velocity, dict):
             self.velocity = {
@@ -67,8 +68,8 @@ class Body:
     def update_acceleration(self, force):
         """Update acceleration from force (a = F/m)."""
         if self.mass != 0:
-            self.acceleration['x'] = force[0] / self.mass
-            self.acceleration['y'] = force[1] / self.mass
+            self.acceleration['x'] = min(force[0] / self.mass, self.max_velocity)
+            self.acceleration['y'] = min(force[1] / self.mass, self.max_velocity)
     
     def update_velocity(self, time_step=1.0):
         """Update velocity from acceleration (v = v0 + at)."""

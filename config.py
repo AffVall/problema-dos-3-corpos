@@ -33,9 +33,19 @@ class Config:
 
     def __init__(self, config_file: str = 'config.ini'):
         self.config_file = config_file
-        self.results_dir = None
-        self.log_dir = None
         self.data = self._load_config()
+        self.PATH = os.path.dirname(os.path.abspath(__file__))
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+        self.results_dir = os.path.join(self.PATH, f"resultados_{timestamp}")
+        self.log_dir = os.path.join(self.PATH, self.results_dir, 'simulation.log')
+
+        DIRS = [self.PATH, self.results_dir, self.log_dir]
+        self.log(f"Creating output directories: {DIRS}")
+        for dir in DIRS:
+            if not os.path.exists(dir):
+                os.makedirs(dir)
+        return 
     
     def _load_config(self) -> Dict[str, Any]:
         config = ConfigParser()
@@ -49,25 +59,12 @@ class Config:
             return self.DEFAULTS
 
 
-    def setup_output_directories(self) -> tuple[str, str]:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.results_dir = f"resultados_{timestamp}"
-        self.log_dir = os.path.join(self.results_dir, 'logs')
-        DIRS = [self.results_dir, self.log_dir]
-        for dir in DIRS:
-            if not os.path.exists(dir):
-                os.makedirs(dir)
-
-        print(f"[INFO] Output directory: {self.results_dir}")
-        return self.results_dir
-
     def log(self, message: str, level: str = "INFO") -> None:
         print(f"[{datetime.now()}][{level}] {message}")
         if level == "DEBUG" and not self.data.get('debug', False):
             return
         try:
-            log_file = os.path.join(self.log_dir, 'simulation.log')
-            with open(log_file, 'a') as f:
+            with open(self.log_dir, 'w') as f:
                 f.write(f"[{datetime.now()}][{level}] {message}\n")
         except Exception as e:
             print(f"[ERROR] Failed to write log: {e}")
@@ -121,16 +118,19 @@ class Config:
         
         data['bodies'] = []
         for section in config.sections():
-            if section != 'SIMULATION' and section != 'VISUALIZATION' and section != 'OUTPUT':
-                data[section] = {
-                    'name': section,
+            print(section)
+            if 'star.' in section or 'planet.' in section:
+
+                bodie = {
+                    'name': section.replace('star.', '').replace('planet.', ''),
                     'mass': config.getfloat(section, 'mass'),
                     'pos_x': config.getfloat(section, 'pos_x'),
                     'pos_y': config.getfloat(section, 'pos_y'),
                     'vel_x': config.getfloat(section, 'vel_x'),
                     'vel_y': config.getfloat(section, 'vel_y')
                 }
-                data['bodies'].append(data[section])
+                data['bodies'].append(bodie)
+            print(data['bodies'])
         return data
     
     def get(self, key: str, default: Any = None) -> Any:

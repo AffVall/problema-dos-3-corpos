@@ -118,11 +118,10 @@ class Config:
         
         data['bodies'] = []
         for section in config.sections():
-            print(section)
             if 'star.' in section or 'planet.' in section:
-
                 bodie = {
                     'name': section.replace('star.', '').replace('planet.', ''),
+                    'type': section.split('.')[0],
                     'mass': config.getfloat(section, 'mass'),
                     'pos_x': config.getfloat(section, 'pos_x'),
                     'pos_y': config.getfloat(section, 'pos_y'),
@@ -130,7 +129,6 @@ class Config:
                     'vel_y': config.getfloat(section, 'vel_y')
                 }
                 data['bodies'].append(bodie)
-            print(data['bodies'])
         return data
     
     def get(self, key: str, default: Any = None) -> Any:

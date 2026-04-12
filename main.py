@@ -1,18 +1,14 @@
 import os
 from random import randint, uniform
 from typing import List, Tuple, Dict
-
-import numpy as np
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+import matplot
+import numpy as np 
 import cv2
-plt.ion()
-fig, ax = plt.subplots(figsize=(10, 10))
+
 from phisicBodies import Body
 from config import Config
 
-COLORS = ['#FF6B6B', '#4ECDC4', "#09FF00", "#F107AB", '#FFE66D', '#FF9F1C', '#2EC4B6', '#E71D36', "#82FF69", '#A0E7E5']
+COLORS = ["#FF6B6B", '#4ECDC4', "#09FF00", "#F107AB", '#FFE66D', '#FF9F1C', '#2EC4B6', '#E71D36', "#82FF69", '#A0E7E5']
 
 
 def calculate_body_size(body: Dict, config: Config) -> float:
@@ -96,43 +92,6 @@ def update_system(bodies: List[Body], time_step: float) -> None:
         body.update_position(time_step)
 
 
-def plot_config(ax : plt.Axes, bodies : list, grid_w: float, grid_h: float) -> None:
-    
-    ax.grid(True, alpha=0.3, linestyle='--')
-    ax.set_xlabel('X (units)', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Y (units)', fontsize=12, fontweight='bold')
-    ax.set_title(f'Three Body Problem', fontsize=14, fontweight='bold') 
-    ax.grid(True, alpha=0.3, linestyle='--')
-    ax.set_aspect('equal', adjustable='box')
-    xs = [body.position['x'] for body in bodies]
-    ys = [body.position['y'] for body in bodies]
-    ax.set_xlim(min(-10, (min(xs) - 10)), max((grid_w + 10), (max(xs) + 10)))
-    ax.set_ylim(min(-10, (min(ys) - 10)), max((grid_h + 10), (max(ys) + 10)))
-    return None
-
-
-def save_frame(ax: plt.Axes, bodies: List[Body], saved_frames: list, dpi: int) -> List:
-    for body, b_color in zip(bodies, COLORS):
-        ax.scatter(body.position['x'], body.position['y'],
-            s=body.size, color=b_color, alpha=0.8, edgecolors='black', 
-            linewidth=1.5, label=body.name)
-        ax.scatter(body.position['x'], body.position['y'],
-                s=body.size, color=b_color, alpha=0.8,
-                edgecolors='black', linewidth=1.5, label=body.name)
-    ax.figure.set_dpi(dpi)
-    fig.canvas.flush_events()
-     
-    frame = ax.get_figure()
-    width, height = frame.canvas.get_width_height()
-    img = np.frombuffer(frame.canvas.tostring_argb(), dtype=np.uint8)
-    img = img.reshape((height, width, 4))
-    img = img[:, :, 1:] 
-    saved_frames.append(img)
-    
-    ax.clear()
-    return saved_frames
-
-
 def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
     bodies = initialize_bodies(config)
     trajectories = {body.name: {'x': [], 'y': []} for body in bodies}
@@ -156,7 +115,6 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
     
     termination = "max_cycles"
     
-    
     for cycle in range(max_cycles * frame_interval):
         for body in bodies:
             trajectories[body.name]['x'].append(body.position['x'])
@@ -165,8 +123,8 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
         update_system(bodies, time_step)
         
         if (cycle + 1) % frame_interval == 0:
-            plot_config(ax, bodies, grid_w, grid_h)
-            frames = save_frame(ax, bodies, frames, dpi)
+            matplot.plot_config(bodies, grid_w, grid_h)
+            frames = matplot.save_frame(bodies, frames, dpi)
             if len(frames) % 10 == 0:
                 config.log(f"Cycle {cycle + 1}: Frame saved (Total frames: {len(frames)})", "DEBUG")
             collided, b1, b2 = check_collision(bodies, collision_dist)

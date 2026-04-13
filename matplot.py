@@ -55,8 +55,8 @@ def plot_distances(trajectories: Dict, bodies: List[Body],
             dist = np.sqrt((x2 - x1)**2 + (y2 - y1)**2)
             distances.append(dist)
         
-        plt.plot(distances, label=f'{names[i]}-{names[j]}', 
-                color=color, linewidth=2.5, alpha=0.8)
+        plt.plot(distances, label=f'{names[i]}-{names[j]}',
+                  linewidth=2.5, alpha=0.8)
     
     plt.xlabel('Cycle', fontsize=14, fontweight='bold')
     plt.ylabel('Distance (units)', fontsize=14, fontweight='bold')
@@ -65,7 +65,7 @@ def plot_distances(trajectories: Dict, bodies: List[Body],
     plt.grid(True, alpha=0.3, linestyle='--')
     plt.tight_layout()
     
-    output = os.path.join(results_dir, 'distances.png')
+    output = path.join(results_dir, 'distances.png')
     plt.savefig(output, dpi=dpi, bbox_inches='tight', facecolor='white')
     print(f"[OK] Distances: {output}")
 
@@ -74,7 +74,7 @@ def plot_velocities(trajectories: Dict, bodies: List[Body],
                    results_dir: str, dpi: int, hq: bool) -> None:
     plt.figure(figsize=(14, 8) if hq else (12, 6))
     
-    for body, color in zip(bodies, COLORS):
+    for body, color in bodies:
         name = body.name
         velocities = []
         
@@ -93,14 +93,14 @@ def plot_velocities(trajectories: Dict, bodies: List[Body],
     plt.grid(True, alpha=0.3, linestyle='--')
     plt.tight_layout()
     
-    output = os.path.join(results_dir, 'velocity.png')
+    output = path.join(results_dir, 'velocity.png')
     plt.savefig(output, dpi=dpi, bbox_inches='tight', facecolor='white')
     print(f"[OK] Velocity: {output}")
 
 
 def video_from_frames(saved_frames: list, results_dir: str, fps: int = 10) -> None:
     height, width, _ = saved_frames[0].shape
-    video_path = os.path.join(results_dir, 'simulation.mp4')
+    video_path = path.join(results_dir, 'simulation.mp4')
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     video = cv2.VideoWriter(video_path, fourcc, fps, (width, height))
     for frame in saved_frames:

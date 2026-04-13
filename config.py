@@ -2,7 +2,6 @@ from configparser import ConfigParser
 import os
 from typing import Dict, Any
 from datetime import datetime
-
 class Config:
 
     DEFAULTS = {
@@ -30,109 +29,125 @@ class Config:
         'min_frames': 15,
         'max_retries': 30,
     }
-
-    def __init__(self, config_file: str = 'config.ini'):
-        self.config_file = config_file
-        self.data = self._load_config()
-        self.PATH = os.path.dirname(os.path.abspath(__file__))
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-
-        self.results_dir = os.path.join(self.PATH, f"resultados_{timestamp}")
-        self.log_dir = os.path.join(self.PATH, self.results_dir, 'simulation.log')
-
-        DIRS = [self.PATH, self.results_dir, self.log_dir]
-        self.log(f"Creating output directories: {DIRS}")
-        for dir in DIRS:
-            if not os.path.exists(dir):
-                os.makedirs(dir)
-        return 
     
     def _load_config(self) -> Dict[str, Any]:
         config = ConfigParser()
         try:
-            config.read(self.config_file)
+            config.read(self.PATH_conf_file)
             data = self._parse_config(config)
-            self.log(f"Config loaded successfully from '{self.config_file}'.", "INFO")
+            self.log(f"Config loaded successfully from '{self.PATH_conf_file}'.", "INFO")
             return data
         except Exception as e:
             self.log(f"Error loading config: {e}. Using defaults.", "ERROR")
             return self.DEFAULTS
-
 
     def log(self, message: str, level: str = "INFO") -> None:
         print(f"[{datetime.now()}][{level}] {message}")
         if level == "DEBUG" and not self.data.get('debug', False):
             return
         try:
-            with open(self.log_dir, 'w') as f:
+            with open(self.log_dir, 'a') as f:
                 f.write(f"[{datetime.now()}][{level}] {message}\n")
         except Exception as e:
             print(f"[ERROR] Failed to write log: {e}")
+            
+    def __init__(self, PATH_conf_file: str = 'config.ini'):
+        self.PATH_conf_file = PATH_conf_file
+        self.data = self._load_config()
+        self.PATH = os.path.dirname(os.path.abspath(__file__))
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.results_dir = os.path.join(self.PATH, 'results', f'simulation_{timestamp}')
+        self.log_dir = os.path.join(self.PATH, 'logs', f'simulation_{timestamp}.log')
+
+        DIRS = [self.results_dir, self.log_dir]
+        self.log(f"Creating output directories: {DIRS}")
+        for dir in DIRS:
+            if not os.path.exists(dir):
+                os.makedirs(dir)
+        return 
+    
+
 
     def _parse_config(self, config: ConfigParser) -> Dict[str, Any]:
+        """parse .ini configs into code informations"""
         data = {}
 
         # Simulation settings
         data['simulation_cycles'] = config.getint(
             'SIMULATION', 'simulation_cycles', fallback=self.DEFAULTS['simulation_cycles'])
+
         data['time_step'] = config.getfloat(
             'SIMULATION', 'time_step', fallback=self.DEFAULTS['time_step'])
+        
         data['randomize_positions'] = config.getboolean(
             'SIMULATION', 'randomize_positions', fallback=self.DEFAULTS['randomize_positions'])
+        
         data['calculate_sizes'] = config.getboolean(
             'SIMULATION', 'calculate_sizes', fallback=self.DEFAULTS['calculate_sizes'])
+        
         data['debug'] = config.getboolean(
             'SIMULATION', 'debug', fallback=self.DEFAULTS['debug'])
+        
         data['size_scale_factor'] = config.getfloat(
             'SIMULATION', 'size_scale_factor', fallback=self.DEFAULTS['size_scale_factor'])
+        
         data['min_velocity'] = config.getfloat(
             'SIMULATION', 'min_velocity', fallback=self.DEFAULTS['min_velocity'])
+        
         data['max_velocity'] = config.getfloat(
             'SIMULATION', 'max_velocity', fallback=self.DEFAULTS['max_velocity'])
+        
         data['end_on_collision'] = config.getboolean(
             'SIMULATION', 'end_on_collision', fallback=self.DEFAULTS['end_on_collision'])
         
         # Visualization settings
         data['grid_width'] = config.getint(
             'VISUALIZATION', 'grid_width', fallback=self.DEFAULTS['grid_width'])
+        
         data['grid_height'] = config.getint(
             'VISUALIZATION', 'grid_height', fallback=self.DEFAULTS['grid_height'])
-        data['scale_factor'] = config.getfloat(
-            'VISUALIZATION', 'scale_factor', fallback=self.DEFAULTS['scale_factor'])
+        
         data['plot_dpi'] = config.getint(
             'VISUALIZATION', 'plot_dpi', fallback=self.DEFAULTS['plot_dpi'])
+        
         data['save_plots'] = config.getboolean(
             'VISUALIZATION', 'save_plots', fallback=self.DEFAULTS['save_plots'])
+        
         data['high_quality_plots'] = config.getboolean(
             'VISUALIZATION', 'high_quality_plots', fallback=self.DEFAULTS['high_quality_plots'])
         
         # Physics settings
         data['collision_distance'] = config.getfloat(
             'SIMULATION', 'collision_distance', fallback=self.DEFAULTS['collision_distance'])
+        
         data['frame_interval'] = config.getint(
             'OUTPUT', 'frame_interval', fallback=self.DEFAULTS['frame_interval'])
+        
         data['min_frames'] = config.getint(
             'OUTPUT', 'min_frames', fallback=self.DEFAULTS['min_frames'])
+        
         data['max_retries'] = config.getint(
             'OUTPUT', 'max_retries', fallback=self.DEFAULTS['max_retries'])
         
         data['bodies'] = []
         for section in config.sections():
-            print(section)
             if 'star.' in section or 'planet.' in section:
-
-                bodie = {
-                    'name': section.replace('star.', '').replace('planet.', ''),
-                    'mass': config.getfloat(section, 'mass'),
-                    'pos_x': config.getfloat(section, 'pos_x'),
-                    'pos_y': config.getfloat(section, 'pos_y'),
-                    'vel_x': config.getfloat(section, 'vel_x'),
-                    'vel_y': config.getfloat(section, 'vel_y')
+                section = {
+                'name' : section.replace('star.', '').replace('planet.', ''),
+                'mass' : config.getfloat(section, 'mass'),
+                'size' : config.getfloat(section, 'size'),
+                'pos' : {'x': config.getfloat(section, 'pos_x'), 'y': config.getfloat(section, 'pos_y')},
+                'vel' : {'x': config.getfloat(section, 'vel_x'), 'y': config.getfloat(section, 'vel_y')},
+                'type' : section.split('.')[0]
                 }
-                data['bodies'].append(bodie)
-            print(data['bodies'])
+                data['bodies'].append(section)
         return data
     
+
+
+
+
+
     def get(self, key: str, default: Any = None) -> Any:
         return self.data.get(key, default)
     

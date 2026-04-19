@@ -1,9 +1,7 @@
 import math
-import os
 from random import randint, uniform
 from typing import List, Tuple, Dict
 import numpy as np
-from config import Config
 
 '''
 G= 6.67430e-11  NM^2/kg^2
@@ -13,30 +11,40 @@ Mterra= 5.97e24 kg
 Gatual= 3.9845571e14
 '''
 
-
 class Body:
+    all_bodies = []
     GRAVITATIONAL_CONSTANT = 6.67430e-11  
-    def __init__(self, mass, velocity, position, max_velocity=0.1, size=1.0, name=None):
-        self.size = float(size) 
+    CONFIG = {
+        'calculate_size': True,
+        'size_scale_factor': 100,
+        'max_velocity': 1000
+    }
+
+    def _calculate_body_size(self) -> None:
+        if not Body.CONFIG['calculate_sizes']:
+            return self.size
+        scale = Body.CONFIG['size_scale_factor']
+        self.size = np.sqrt(self.mass) * scale
+    
+    def __init__(self, mass, velocity, position, size=1.0, name=None, body_type=None):
         self.name = name
         self.mass = float(mass)
-        self.max_velocity = float(max_velocity)
         
         if isinstance(velocity, dict):
             self.velocity = {
                 'x': float(velocity.get('x', 0)),
                 'y': float(velocity.get('y', 0)),
             }
-        else:
-            self.velocity = {'x': 0.0, 'y': 0.0}
+        else: self.velocity = {'x': 0.0, 'y': 0.0}
         
         self.position = {
             'x': float(position['x']),
             'y': float(position['y']),
         }
+        self.body_type = body_type
         
         self.acceleration = {'x': 0.0, 'y': 0.0}
-        self.calculate_body_size()
+        self.size = self._calculate_body_size()
         self.__str__()
     
     def gravitational_field(self, point):
@@ -53,8 +61,7 @@ class Body:
         dy = point['y'] - self.position['y']
         dist_sq = dx*dx + dy*dy
 
-        if dist_sq == 0:
-            return (0, 0)
+        if dist_sq == 0: return (0, 0)
         
         dist = math.sqrt(dist_sq)
         field_mag = self.GRAVITATIONAL_CONSTANT * self.mass / dist_sq
@@ -77,14 +84,13 @@ class Body:
             field = body.gravitational_field(self.position)
             fx += field[0] * self.mass
             fy += field[1] * self.mass
-        
         return (fx, fy)
     
     def update_acceleration(self, force):
         """Update acceleration from force (a = F/m)."""
         if self.mass != 0:
-            self.acceleration['x'] = min(force[0] / self.mass, self.max_velocity)
-            self.acceleration['y'] = min(force[1] / self.mass, self.max_velocity)
+            self.acceleration['x'] = min(force[0] / self.mass, Body.CONFIG['max_velocity'])
+            self.acceleration['y'] = min(force[1] / self.mass, Body.CONFIG['max_velocity'])
     
     def update_velocity(self, time_step=1.0):
         """Update velocity from acceleration (v = v0 + at)."""
@@ -110,20 +116,15 @@ class Body:
                 f"  Velocity: x={self.velocity['x']:.2e}, y={self.velocity['y']:.2e}\n"
                 f"  Acceleration: x={self.acceleration['x']:.2e}, y={self.acceleration['y']:.2e}")
 
-    def calculate_body_size(self, config: Config) -> float:
-        if config['calculate_sizes']:
-            scale = config.get('size_scale_factor', 100)
-            size = np.sqrt(self.mass) * scale
-            return max(5.0, min(100.0, size))
-        return 25.0
-
-    def initialize_bodies(self, bodies: List, COLORS: List[str]) -> None:
-        
-        for body, color in zip(bodies, COLORS):
-            name = body['name']
-            mass = body['mass']
-            size = body.calculate_body_size(body)
-            pos_x = body['pos_x']
-            pos_y = body['pos_y']
-            vel_x = body['vel_x']
-            vel_y = body['vel_y']
+def initialize_bodies(data_bodies= List[Dict]) -> None:
+    for body in data_bodies:
+        new_body = Body(
+            mass = int(body['mass']),
+            velocity = dict(body['velocity']),
+            position= dict(body['position']),
+            size = float(body['size']),
+            name = str(body['name']),
+            body_type = str(body['body_type']),
+        )
+        Body.all_bodies.append(new_body)
+    return Body.all_bodies

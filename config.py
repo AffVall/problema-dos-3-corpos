@@ -13,8 +13,8 @@ class Config:
         'debug': True,
         'simulation_cycles': 100000000,
         'body_mask' : 1.5,
-        'min_velocity': -0.2,
-        'max_velocity': 0.2,
+        'min_velocity': -1000,
+        'max_velocity': 1000,
         # Visualization settings
         'time_step': 0.01,
         'grid_width': 300,
@@ -41,6 +41,21 @@ class Config:
             self.log(f"Error loading config: {e}. Using defaults.", "ERROR")
             return self.DEFAULTS
 
+            
+    def __init__(self, PATH_conf_file: str = 'config.ini'):
+        self.PATH_conf_file = PATH_conf_file
+        self.data = self._load_config()
+        self.PATH = os.path.dirname(os.path.abspath(__file__))
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.results_dir = os.path.join(self.PATH, 'results', f'simulation_{timestamp}')
+        self.log_dir = os.path.join(self.results_dir, f'simulation_{timestamp}.log')
+
+        self.log(f"Creating output directories: {self.results_dir}")
+        if not os.path.exists(self.results_dir):
+            os.makedirs(self.results_dir)
+        return 
+    
+
     def log(self, message: str, level: str = "INFO") -> None:
         print(f"[{datetime.now()}][{level}] {message}")
         if level == "DEBUG" and not self.data.get('debug', False):
@@ -50,22 +65,6 @@ class Config:
                 f.write(f"[{datetime.now()}][{level}] {message}\n")
         except Exception as e:
             print(f"[ERROR] Failed to write log: {e}")
-            
-    def __init__(self, PATH_conf_file: str = 'config.ini'):
-        self.PATH_conf_file = PATH_conf_file
-        self.data = self._load_config()
-        self.PATH = os.path.dirname(os.path.abspath(__file__))
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.results_dir = os.path.join(self.PATH, 'results', f'simulation_{timestamp}')
-        self.log_dir = os.path.join(self.PATH, 'logs', f'simulation_{timestamp}.log')
-
-        DIRS = [self.results_dir, self.log_dir]
-        self.log(f"Creating output directories: {DIRS}")
-        for dir in DIRS:
-            if not os.path.exists(dir):
-                os.makedirs(dir)
-        return 
-    
 
 
     def _parse_config(self, config: ConfigParser) -> Dict[str, Any]:
@@ -130,22 +129,21 @@ class Config:
             'OUTPUT', 'max_retries', fallback=self.DEFAULTS['max_retries'])
         
         data['bodies'] = []
+        
         for section in config.sections():
             if 'star.' in section or 'planet.' in section:
-                section = {
-                'name' : section.replace('star.', '').replace('planet.', ''),
-                'mass' : config.getfloat(section, 'mass'),
-                'size' : config.getfloat(section, 'size'),
-                'pos' : {'x': config.getfloat(section, 'pos_x'), 'y': config.getfloat(section, 'pos_y')},
-                'vel' : {'x': config.getfloat(section, 'vel_x'), 'y': config.getfloat(section, 'vel_y')},
-                'type' : section.split('.')[0]
+                name_and_type = section.split('.')
+                new_body = {
+                    'name': name_and_type[1],
+                    'mass': config.getfloat(section, 'mass'),
+                    'position': {'x': config.getfloat(section, 'pos_x'), 'y': config.getfloat(section, 'pos_y')},
+                    'velocity': {'x': config.getfloat(section, 'vel_x'), 'y': config.getfloat(section, 'vel_y')},
+                    'body_type': name_and_type[0],
+                    'size': config.getfloat(section, 'size'),
                 }
-                data['bodies'].append(section)
+                data['bodies'].append(new_body)
+        print(data['bodies'])
         return data
-    
-
-
-
 
 
     def get(self, key: str, default: Any = None) -> Any:

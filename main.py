@@ -1,8 +1,9 @@
 from random import randint, uniform
 from typing import List, Tuple, Dict
 import numpy as np
-from phisicBody import Body
 from config import Config
+import phisicBody
+
 import matplot as mp
 
 COLORS = ['#FF6B6B', '#4ECDC4', "#09FF00", "#F107AB", '#FFE66D', '#FF9F1C', '#2EC4B6', '#E71D36', "#82FF69", '#A0E7E5']
@@ -28,7 +29,7 @@ def randomize_body_positions(config: Config, bodies: List[Dict]) -> None:
         body_data['vel_y'] = float(vel_y)
 
 
-def check_collision(bodies: List[Body], collision_dist: float) -> Tuple[bool, str, str]:
+def check_collision(bodies: List, collision_dist: float) -> Tuple[bool, str, str]:
     for i, body1 in enumerate(bodies):
         for j in range(i + 1, len(bodies)):
             body2 = bodies[j]
@@ -39,7 +40,7 @@ def check_collision(bodies: List[Body], collision_dist: float) -> Tuple[bool, st
     return False, None, None
 
 
-def check_boundary_exit(bodies: List[Body], grid_w: float, grid_h: float) -> Tuple[bool, str]:
+def check_boundary_exit(bodies: List, grid_w: float, grid_h: float) -> Tuple[bool, str]:
     margin_w, margin_h = max(10, int(grid_w * 0.25)), max(10, int(grid_h * 0.25))
     for body in bodies:
         x, y = body.position['x'], body.position['y']
@@ -48,7 +49,7 @@ def check_boundary_exit(bodies: List[Body], grid_w: float, grid_h: float) -> Tup
     return False, None
 
 
-def update_system(bodies: List[Body], time_step: float) -> None:
+def update_system(bodies: List, time_step: float) -> None:
     for i, body in enumerate(bodies):
         other_bodies = bodies[:i] + bodies[i+1:]
         force = body.calculate_resultant_force(other_bodies)
@@ -61,10 +62,11 @@ def update_system(bodies: List[Body], time_step: float) -> None:
         body.update_position(time_step)
 
 
-def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
-    bodies = config.get('bodies')
-    trajectories = {body.name: {'x': [], 'y': []} for body in bodies}
+def run_simulation(config: Config, frames: list) -> Tuple[List, Dict]:
+    bodies = phisicBody.initialize_bodies(config.get('bodies'))
     
+    trajectories = {body.name: {'x': [], 'y': []} for body in bodies}
+     
     max_cycles = config['simulation_cycles']
     time_step = config['time_step']
     grid_w, grid_h = config['grid_width'], config['grid_height']
@@ -124,7 +126,7 @@ def run_simulation(config: Config, frames: list) -> Tuple[List[Body], Dict]:
 
 
 def validate_and_retry(config: Config, results_dir: str, frames: list,
-                       retry_count: int = 0) -> Tuple[List[Body], Dict]:
+                       retry_count: int = 0) -> Tuple[List, Dict]:
     if retry_count > 0:
         frames.clear()
     
@@ -146,6 +148,9 @@ def validate_and_retry(config: Config, results_dir: str, frames: list,
 
 def main() -> None:
     config = Config()
+    phisicBody_configs = 'max_velocity',  'size_scale_factor', 'calculate_sizes'
+    for c in phisicBody_configs: phisicBody.Body.CONFIG[c] = config[c]
+
     frames = []
 
     config.log("="*60)
